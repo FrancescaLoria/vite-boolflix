@@ -1,5 +1,6 @@
 <script>
 import { store } from "../store";
+import AppCard from "./AppCards.vue";
 export default {
   name: "AppMain",
   data() {
@@ -7,15 +8,15 @@ export default {
       store,
     };
   },
+  components: {
+    AppCard,
+  },
 };
 </script>
 
 <template>
   <ul v-for="movie in store.movies" :key="movie.id">
-    <li>{{ movie.title }}</li>
-    <li>{{ movie.original_title }}</li>
-    <li>{{ movie.original_language }}</li>
-    <li>{{ movie.vote_average }}</li>
+    <AppCard :movie="movie" />
   </ul>
 </template>
 
