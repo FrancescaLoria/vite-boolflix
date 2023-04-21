@@ -16,7 +16,10 @@ export default {
 
 <template>
   <ul v-for="movie in store.movies" :key="movie.id">
-    <AppCard :movie="movie" />
+    <AppCard :content="movie" />
+  </ul>
+  <ul v-for="series in store.series" :key="series.id">
+    <AppCard :content="series" />
   </ul>
 </template>
 

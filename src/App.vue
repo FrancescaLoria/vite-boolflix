@@ -23,7 +23,17 @@ export default {
         })
         .then((resp) => {
           store.movies = resp.data.results;
-          console.log(store.movies);
+          console.log("MOVIES", resp.data.results);
+        });
+      axios
+        .get(store.urlSeries, {
+          params: {
+            query: store.searchInputValue,
+          },
+        })
+        .then((resp) => {
+          store.series = resp.data.results;
+          console.log("SERIES", resp.data.results);
         });
     },
   },

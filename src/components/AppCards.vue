@@ -2,7 +2,7 @@
 export default {
   name: "Appcard",
   props: {
-    movie: Object,
+    content: Object,
   },
   data() {
     return {};
@@ -21,17 +21,18 @@ export default {
 </script>
 
 <template>
-  <li>{{ movie.title }}</li>
-  <li>{{ movie.original_title }}</li>
+  <li>{{ content.title }}</li>
+  <li>{{ content.name }}</li>
+  <li>{{ content.original_title }}</li>
   <li>
     <img
-      :src="getImgUrl(movie.original_language)"
-      :alt="movie.title"
-      v-if="getImgUrl(movie.original_language)"
+      :src="getImgUrl(content.original_language)"
+      :alt="content.title"
+      v-if="getImgUrl(content.original_language)"
     />
-    <div v-else>{{ movie.original_language }}</div>
+    <div v-else>{{ content.original_language }}</div>
   </li>
-  <li>{{ movie.vote_average }}</li>
+  <li>{{ content.vote_average }}</li>
 </template>
 
 <style scoped lang="scss">
