@@ -21,6 +21,7 @@ export default {
           type="text"
           placeholder="cerca"
           v-model="store.searchInputValue"
+          @keyup.enter="$emit('searchNetflix')"
         />
         <button @click="$emit('searchNetflix')">cerca</button>
       </div>

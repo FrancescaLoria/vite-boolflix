@@ -16,6 +16,14 @@ export default {
         return imgUrl.href;
       }
     },
+    divideGradeAverage(returnDifferrence) {
+      const numb = Math.ceil(this.content.vote_average / 2);
+      if (!returnDifferrence) {
+        return numb;
+      } else {
+        return 5 - numb;
+      }
+    },
   },
 };
 </script>
@@ -32,7 +40,17 @@ export default {
     />
     <div v-else>{{ content.original_language }}</div>
   </li>
-  <li>{{ content.vote_average }}</li>
+
+  <li>
+    <FontAwesomeIcon
+      icon="fa-solid fa-star"
+      v-for="star in divideGradeAverage(false)"
+    />
+    <FontAwesomeIcon
+      icon="fa-regular fa-star"
+      v-for="star in divideGradeAverage(true)"
+    />
+  </li>
 </template>
 
 <style scoped lang="scss">
