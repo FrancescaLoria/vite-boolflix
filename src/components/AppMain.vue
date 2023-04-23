@@ -15,12 +15,30 @@ export default {
 </script>
 
 <template>
-  <ul v-for="movie in store.movies" :key="movie.id">
-    <AppCard :content="movie" />
-  </ul>
-  <ul v-for="series in store.series" :key="series.id">
-    <AppCard :content="series" />
-  </ul>
+  <main>
+    <div class="container pt-5">
+      <div>
+        <h2 v-if="store.movies.length > 0">MOVIES</h2>
+        <ul class="row row-cols-5 d-flex">
+          <li v-for="movie in store.movies" :key="movie.id">
+            <AppCard :content="movie" />
+          </li>
+        </ul>
+        <h2 v-if="store.series.length > 0">SERIES</h2>
+        <ul class="row row-cols-5 d-flex">
+          <li v-for="series in store.series" :key="series.id">
+            <AppCard :content="series" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+li {
+  list-style-type: none;
+  background-color: black;
+  color: white;
+}
+</style>
