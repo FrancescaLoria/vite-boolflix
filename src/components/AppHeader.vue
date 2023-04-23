@@ -19,11 +19,16 @@ export default {
       <div class="ms_searchbar d-flex align-items-center">
         <input
           type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm"
           placeholder="cerca"
           v-model="store.searchInputValue"
           @keyup.enter="$emit('searchNetflix')"
         />
-        <button @click="$emit('searchNetflix')">cerca</button>
+        <button class="btn btn-sm ms-2" @click="$emit('searchNetflix')">
+          cerca
+        </button>
       </div>
     </div>
   </header>
@@ -33,5 +38,14 @@ export default {
 header {
   background-color: black;
   height: 80px;
+
+  .logo {
+    color: red;
+  }
+
+  .btn {
+    background-color: red;
+    font-size: 15px;
+  }
 }
 </style>

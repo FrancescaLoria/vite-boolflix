@@ -15,26 +15,28 @@ export default {
   },
   methods: {
     searchNetflix() {
-      axios
-        .get(store.urlMovies, {
-          params: {
-            query: store.searchInputValue,
-          },
-        })
-        .then((resp) => {
-          store.movies = resp.data.results;
-          console.log("MOVIES", resp.data.results);
-        });
-      axios
-        .get(store.urlSeries, {
-          params: {
-            query: store.searchInputValue,
-          },
-        })
-        .then((resp) => {
-          store.series = resp.data.results;
-          console.log("SERIES", resp.data.results);
-        });
+      if (store.searchInputValue.trim()) {
+        axios
+          .get(store.urlMovies, {
+            params: {
+              query: store.searchInputValue,
+            },
+          })
+          .then((resp) => {
+            store.movies = resp.data.results;
+            console.log("MOVIES", resp.data.results);
+          });
+        axios
+          .get(store.urlSeries, {
+            params: {
+              query: store.searchInputValue,
+            },
+          })
+          .then((resp) => {
+            store.series = resp.data.results;
+            console.log("SERIES", resp.data.results);
+          });
+      }
     },
   },
 };
